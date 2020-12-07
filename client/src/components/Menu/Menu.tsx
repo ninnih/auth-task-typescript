@@ -2,7 +2,6 @@ import React from 'react'
 import './Menu.scss';
 import { Link, NavLink } from 'react-router-dom';
 
-
 export const Menu = () => {
 	return (
 		<section className="menu">

@@ -46,7 +46,7 @@ const Registration: FC<Props> = ({ onChange, onSubmit, registration }) => {
         <article>
         <label htmlFor="password">Password</label>
           <input 
-            type="text" 
+            type="password" 
             id="password"
             value={registration.password || ''}
             onChange={onChange}/>
@@ -55,7 +55,7 @@ const Registration: FC<Props> = ({ onChange, onSubmit, registration }) => {
         <article>
           <label htmlFor="password2">Password *</label>
           <input 
-            type="text" 
+            type="password" 
             id="password2"
             value={registration.password2 || ''}
             onChange={onChange}/>
