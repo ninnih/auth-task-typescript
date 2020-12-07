@@ -1,5 +1,9 @@
 import { AuthState, authActions } from './../types/index';
-import { SET_CURRENT_USER, USER_LOADING } from "../constants/index";
+import { 
+  SET_CURRENT_USER, 
+  USER_LOADING, 
+  REMOVE_CURRENT_USER 
+} from "../constants/index";
 const isEmpty = require("is-empty");
 
 const initialState: AuthState = {
@@ -19,11 +23,22 @@ const authReducer = (state = initialState, action: authActions) => {
         isAuthenticated: !isEmpty(payload),
         user: payload
       };
+
     case USER_LOADING:
       return {
         ...state,
         loading: true
       };
+
+    case REMOVE_CURRENT_USER:
+      console.log(payload)
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: {},
+        loading: false
+      }
+    
     default:
       return state;
   }

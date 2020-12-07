@@ -5,7 +5,8 @@ import jwt_decode from "jwt-decode";
 import { 
   GET_ERRORS, 
   SET_CURRENT_USER, 
-  USER_LOADING 
+  USER_LOADING,
+  REMOVE_CURRENT_USER 
 } from "../constants/index";
 
 export const registerUser = (userData: any, history: any) => (dispatch: any) => {
@@ -57,14 +58,12 @@ export const setUserLoading = () => {
   };
 };
 
-export const logoutUser = () => (dispatch: any) => {
+export const logoutUser = () => {
   localStorage.removeItem("jwtToken");
 
   setAuthToken(false);
 
-  dispatch(setCurrentUser({
-    isAuthenticated: null,
-    user: null,
-    loading: null
-  }));
+  return {
+    type: REMOVE_CURRENT_USER,
+  };
 };

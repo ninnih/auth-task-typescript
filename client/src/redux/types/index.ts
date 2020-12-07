@@ -1,7 +1,8 @@
 import {
 	GET_ERRORS,
 	USER_LOADING,
-	SET_CURRENT_USER
+	SET_CURRENT_USER,
+	REMOVE_CURRENT_USER
 } from '../constants/index';
 
 export interface AuthState {
@@ -24,8 +25,13 @@ export interface setCurrentUserAction {
 	type: typeof SET_CURRENT_USER
 	payload: any
 }
+export interface removeCurrentUserAction {
+	type: typeof REMOVE_CURRENT_USER
+	payload: any
+}
 
 export type authActions = 
 getErrorsAction |
 userLoadingAction |
-setCurrentUserAction;
+setCurrentUserAction |
+removeCurrentUserAction;
