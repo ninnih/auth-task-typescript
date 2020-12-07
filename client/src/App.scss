@@ -1,0 +1,65 @@
+@import "./variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-family: $header;
+  font-size: clamp(32px, 3vw, 48px);
+  color: $black;
+}
+
+h2 {
+  font-family: $header;
+  font-size: clamp(25px, 2vw, 32px);
+  color: $black;
+}
+
+h3 {
+  font-family: $header;
+  font-size: clamp(18px, 1.5vw, 24px);
+  color: $black;
+}
+
+h4 {
+  font-family: $header;
+  font-size: clamp(16px, 1vw, 18px);
+  color: $black;
+}
+
+h5 {
+  font-family: $header;
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 500;
+}
+
+p {
+  font-family: $paragraph;
+  font-size: clamp(16px, 1vw, 18px);
+  color: $black;
+}
+
+a {
+  font-family: $paragraph;
+  font-size: clamp(16px, 1vw, 18px);
+  text-decoration: none;
+  color: $green;
+  transition: all ease-in-out .25s;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.mainWrapper {
+  width: 80%;
+}
