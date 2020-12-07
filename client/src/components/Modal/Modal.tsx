@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
+import './Modal.scss';
 
-const Modal = () => {
+type Props = {
+	modalContent: any
+}
+
+const Modal: FC<Props> = ({ modalContent }) => {
+
 	return (
-		<section className="modalWrapper">
+		// <section className="modalWrapper">
 			<section className="modal">
-
+				{modalContent}
 			</section>
-		</section>
+		// </section>
 	)
 }
 

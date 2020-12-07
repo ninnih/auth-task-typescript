@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -65,8 +65,21 @@ const Routes: FC = () => {
       password: login.password
     }
     dispatch(loginUser(newLogin, history))
+
+    setLogin({
+      email: '',
+      password: '',
+      errors: {}
+    })
   }
 
+  // useEffect(() => {
+  //   return () => setLogin({
+  //     email: '',
+  //     password: '',
+  //     errors: {}
+  //   })
+  // }, [])
   
 
   return (

@@ -36,6 +36,13 @@ h5 {
   font-weight: 500;
 }
 
+h6 {
+  font-family: $header;
+  font-size: clamp(14px, 1vw, 16px);
+  font-weight: 500;
+  font-style: italic;
+}
+
 p {
   font-family: $paragraph;
   font-size: clamp(16px, 1vw, 18px);
@@ -52,6 +59,10 @@ a {
   &:hover {
     text-decoration: underline;
   }
+}
+
+label {
+  font-size: 14px;
 }
 
 .wrapper {
