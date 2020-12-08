@@ -8,11 +8,9 @@ type Props = {
 const Modal: FC<Props> = ({ modalContent }) => {
 
 	return (
-		// <section className="modalWrapper">
 			<section className="modal">
 				{modalContent}
 			</section>
-		// </section>
 	)
 }
 

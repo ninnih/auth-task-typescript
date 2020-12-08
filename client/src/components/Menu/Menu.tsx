@@ -1,6 +1,6 @@
 import React from 'react'
 import './Menu.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 export const Menu = () => {
 	return (
@@ -8,9 +8,11 @@ export const Menu = () => {
 			<nav>
 				<li><NavLink to="/">Home</NavLink></li>
 				<li><NavLink to="/dashboard">Dashboard</NavLink></li>
-				<li><NavLink to="/login">Login</NavLink></li>
-				<li><NavLink to="/register">Register</NavLink></li>
 			</nav>
+			<ul>
+				<li><Link to="/login">Log in</Link></li>
+				<li><Link to="/register">Create account</Link></li>
+			</ul>
 		</section>
 	)
 }
