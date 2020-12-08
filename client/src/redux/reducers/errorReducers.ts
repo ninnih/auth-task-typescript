@@ -8,7 +8,6 @@ const errorReducer = (state = initialState, action: authActions) => {
 
   switch (action.type) {
     case GET_ERRORS:
-      console.log(payload)
       return payload;
     default:
       return state;

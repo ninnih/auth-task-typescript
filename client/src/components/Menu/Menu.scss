@@ -2,8 +2,9 @@
 
 .menu {
 	width: 15%;
-	padding: 2%;
-	background-color: beige;
+	min-width: 200px;
+	padding: 3%;
+	background-color: $tan;
 	z-index: 5;
 	display: flex;
 	flex-direction: column;
@@ -12,5 +13,17 @@
 	nav {
 		margin-top: 50px;
 		list-style-type: none;
+
+		li {
+			text-transform: uppercase;
+			font-weight: 600;
+			margin: 5%;
+		}
+	}
+
+	ul {
+		li {
+			color: $white;
+		}
 	}
 }

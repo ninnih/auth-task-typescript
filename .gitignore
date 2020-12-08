@@ -24,4 +24,6 @@ yarn-debug.log*
 yarn-error.log*
 
 #config
-.config/development
+
+server/config/development.ts
+server/config/passport.ts

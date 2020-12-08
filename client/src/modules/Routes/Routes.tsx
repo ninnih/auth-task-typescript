@@ -73,15 +73,6 @@ const Routes: FC = () => {
     })
   }
 
-  // useEffect(() => {
-  //   return () => setLogin({
-  //     email: '',
-  //     password: '',
-  //     errors: {}
-  //   })
-  // }, [])
-  
-
   return (
       <Switch> 
         <Route exact path='/' render={() => <Home />}></Route>

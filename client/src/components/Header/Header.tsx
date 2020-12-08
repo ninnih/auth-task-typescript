@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom';
 const Header = () => {
 	const dispatch = useDispatch();
 	const auth = useSelector((state: RootState) => state.auth)
-	console.log(auth)
 	const logOutUser = () => {
 		dispatch(logoutUser())
 	}
@@ -21,9 +20,9 @@ const Header = () => {
 				{ auth.isAuthenticated ? 
 					<Button type="logout" value="Log out" action={logOutUser}/>
 				: 
-				<Link to="/login">
-					<Button type="login" value="Log in"/>
-				</Link>
+					<Link to="/login">
+						<Button type="login" value="Log in"/>
+					</Link>
 				}
 				{ auth.isAuthenticated ? 
 					null 

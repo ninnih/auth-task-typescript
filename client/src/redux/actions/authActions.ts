@@ -34,7 +34,7 @@ export const loginUser = (userData: any, history: any) => (dispatch: any) => {
       const decoded: AuthState = jwt_decode(token);
       dispatch(setCurrentUser(decoded));
       
-      history.push('/')
+      history.push('/dashboard')
     })
     .catch(err =>{
       dispatch({
@@ -45,7 +45,6 @@ export const loginUser = (userData: any, history: any) => (dispatch: any) => {
 };
 
 export const setCurrentUser = (decoded: AuthState) => {
-  console.log(decoded)
   return {
     type: SET_CURRENT_USER,
     payload: decoded

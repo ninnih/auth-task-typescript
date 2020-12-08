@@ -3,7 +3,6 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
-console.log('key', keys.key.secretOrKey)
 import validateRegistrationInput from '../../validator/register';
 import { validateLogInInput } from '../../validator/login';
 import { User } from '../../models/users';
@@ -72,7 +71,6 @@ router.post("/login", (req, res) => {
             expiresIn: 31556926 
           },
           (err, token) => {
-            console.log('token', token)
             res.json({
               success: true,
               token: "Bearer " + token

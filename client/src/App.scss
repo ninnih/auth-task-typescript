@@ -53,7 +53,7 @@ a {
   font-family: $paragraph;
   font-size: clamp(16px, 1vw, 18px);
   text-decoration: none;
-  color: $green;
+  color: $green-leaf;
   transition: all ease-in-out .25s;
 
   &:hover {
@@ -71,6 +71,14 @@ label {
   min-height: 100vh;
 }
 
-.mainWrapper {
+main {
   width: 85%;
+  // background-image: url('/assets/images/green2.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
 }

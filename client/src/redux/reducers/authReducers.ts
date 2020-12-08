@@ -17,7 +17,6 @@ const authReducer = (state = initialState, action: authActions) => {
   
   switch (action.type) {
     case SET_CURRENT_USER:
-      console.log(payload)
       return {
         ...state,
         isAuthenticated: !isEmpty(payload),
@@ -31,7 +30,6 @@ const authReducer = (state = initialState, action: authActions) => {
       };
 
     case REMOVE_CURRENT_USER:
-      console.log(payload)
       return {
         ...state,
         isAuthenticated: false,

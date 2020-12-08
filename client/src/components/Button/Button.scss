@@ -4,13 +4,38 @@
 	width: max-content;
 	min-width: 130px;
 	padding: 10px 15px;	
-	border-radius: 30px;
-	border: none;
-	transition: all ease-in-out .25s;
-	background-color: $blue;
+	margin: 0 10px;
+	border-radius: 2px;
+	border: 3px solid $green-leaf;
+	transition: all ease-in-out 0.5s;
+	background-color: rgba(57, 96, 61, 0);
+
+	h4 {
+		color: $white;
+		text-transform: uppercase;
+	}
 
 	&:hover {
-		background-color: $green;
 		cursor: pointer;
+		background-color: rgba(57, 96, 61, 0.4);
+	}
+
+	&--login {
+		background-color: $green-leaf;
+		border: 3px solid $green-leaf;
+
+		h4 {
+			color: $white;
+		}
+	}
+
+	&--submit {
+		h4 {
+			color: $green-leaf;
+		}
+	}
+
+	&--logout {
+		background-color: $green-leaf;
 	}
 }

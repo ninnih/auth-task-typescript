@@ -6,7 +6,6 @@ import Dashboard from '../Dashboard/Dashboard';
 
 const PrivateRoute = () => {
 	const auth = useSelector((state: RootState) => state.auth)
-	console.log(auth)
 	return (
 		<Route exact path='/dashboard' render={(props) => auth.isAuthenticated ? <Dashboard /> : <Redirect to='/login' />} />
 	)

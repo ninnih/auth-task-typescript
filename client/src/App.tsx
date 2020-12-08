@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
 import Header from './components/Header/Header';
 import Routes from './modules/Routes/Routes';
@@ -7,35 +7,46 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./redux/actions/authActions";
 import { useDispatch } from 'react-redux';
+import Background from './assets/images/green2.jpg';
+import { useLocation } from 'react-router-dom';
 
 const App = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   // if (localStorage.jwtToken) {
-  //   // Set auth token header auth
   //   const token = localStorage.jwtToken;
   //   setAuthToken(token);
-  //   // Decode token and get user info and exp
   //   const decoded: any = jwt_decode(token);
-  //   // Set user and isAuthenticated
   //   dispatch(setCurrentUser(decoded));
-  // // Check for expired token
-  //   const currentTime = Date.now() / 1000; // to get in milliseconds
+  //   const currentTime = Date.now() / 1000; 
   //   if (decoded.exp < currentTime) {
-  //     // Logout user
   //     dispatch(logoutUser());
-  //     // Redirect to login
   //     window.location.href = "./login";
   //   }
   // }
 
+  const [image, setImage] = useState('none');
+
+  let background = {
+    backgroundImage: image
+  }
+
+  useEffect(() => {
+    if(location.pathname === '/login' || location.pathname === '/' || location.pathname === '/register') {
+      setImage(`url(${Background})`)
+    } else {
+      setImage('none')
+    }
+  }, [location.pathname])
+  
   return (
    <section className="wrapper">
     <Menu />
-    <section className="mainWrapper">
-      <Header />
+    <Header />
+    <main style={background}>
       <Routes />
-    </section>
+    </main>
    </section>
   );
 }
