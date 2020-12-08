@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
 app.use(passport.initialize());
-require("./config/passport")(passport);
+require("./server/config/passport")(passport);
 
 mongoose.connect(key.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => console.log('Successful connection to db yippie'))
