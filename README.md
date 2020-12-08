@@ -24,5 +24,6 @@ Passwords saved to the database are hashed with bcrypt for user privacy and secu
 - Chat in the application.
 - Keep track on progress.
 - Socket.io
+- Responsive.
 
 Images from Unsplash.com
