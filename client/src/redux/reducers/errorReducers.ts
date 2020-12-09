@@ -1,7 +1,7 @@
-import { authActions } from './../types/index';
+import { authActions } from '../types/authTypes';
 import { GET_ERRORS } from "../constants/index";
 
-const initialState: any = {};
+const initialState: Object = {};
 
 const errorReducer = (state = initialState, action: authActions) => {
   const payload = action.payload;

@@ -1,13 +1,11 @@
-const express = require("express");
-const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const keys = require("../../config/keys");
-import validateRegistrationInput from '../../validator/register';
-import { validateLogInInput } from '../../validator/login';
-import { User } from '../../models/users';
+const keys = require("../config/keys");
+import validateRegistrationInput from '../validator/register';
+import { validateLogInInput } from '../validator/login';
+import { User } from '../models/users';
 
-router.post('/register', (req, res) => {
+const registrationController = (req, res) => {
   const { errors, isValid } = validateRegistrationInput(req.body);
 
   if(!isValid) {
@@ -24,9 +22,12 @@ router.post('/register', (req, res) => {
         const newUser = new User({
           name: req.body.name,
           email: req.body.email,
-          password: req.body.password
-        });
-
+					password: req.body.password,
+					info: {
+						profile: ''
+					}
+				});
+				
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
@@ -39,10 +40,9 @@ router.post('/register', (req, res) => {
         });
       }
     })
-})
+}
 
-router.post("/login", (req, res) => {
-  console.log('req', req.body)
+const loginController = (req, res) => {
   const { errors, isValid } = validateLogInInput(req.body);
   const email = req.body.email;
   const password = req.body.password;
@@ -84,6 +84,9 @@ router.post("/login", (req, res) => {
       }
     });
   });
-});
+};
 
-module.exports = router;
+module.exports = {
+	registrationController,
+	loginController
+}

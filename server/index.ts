@@ -13,7 +13,7 @@ const app: Application = express();
 const server = http.createServer(app);
 const io: Server = socketio(server);
 const port = process.env.PORT || 8000;
-const users = require('./routes/api/users');
+const users = require('./router/index');
 
 import { key } from './config/keys';
 dotenv.config();
@@ -28,7 +28,7 @@ app.use(passport.initialize());
 const config = require('./config/passport')(passport);
 
 mongoose.connect(key.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true})
-  .then(() => console.log('Successful connection to db yippie'))
+  .then(() => console.log('Successful connection to db'))
   .catch(err => console.log(err)
 );
 

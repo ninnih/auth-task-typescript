@@ -7,8 +7,27 @@ import {
 
 export interface AuthState {
 	isAuthenticated: boolean | null,
-  user: any | null,
+  user: currentUser | null,
   loading: boolean | null
+}
+
+export interface currentUser {
+	exp: number | null,
+	iat: number | null,
+	id: string | null,
+	name: string | null
+}
+
+export interface NewRegisteredUser {
+	name: string,
+	email: string,
+	password: string,
+	password2: string
+}
+
+export interface LogInUser {
+	email: string,
+	password: string
 }
 
 export interface getErrorsAction {
@@ -23,7 +42,7 @@ export interface userLoadingAction {
 
 export interface setCurrentUserAction {
 	type: typeof SET_CURRENT_USER
-	payload: any
+	payload: currentUser
 }
 export interface removeCurrentUserAction {
 	type: typeof REMOVE_CURRENT_USER

@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import './Modal.scss';
 
 type Props = {
-	modalContent: any
+	modalContent: JSX.Element
 }
 
 const Modal: FC<Props> = ({ modalContent }) => {

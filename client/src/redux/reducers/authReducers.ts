@@ -1,4 +1,4 @@
-import { AuthState, authActions } from './../types/index';
+import { AuthState, authActions } from '../types/authTypes';
 import { 
   SET_CURRENT_USER, 
   USER_LOADING, 
@@ -8,7 +8,12 @@ const isEmpty = require("is-empty");
 
 const initialState: AuthState = {
   isAuthenticated: false,
-  user: {},
+  user: { 
+    exp: null,
+    iat: null,
+    id: null,
+    name: null
+  },
   loading: false
 };
 

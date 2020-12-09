@@ -4,7 +4,8 @@ export interface UserInterface {
 	name: string,
 	password: string,
 	email: string,
-	date: Date
+  date: Date,
+  info: Object
 }
 
 const UserSchema = new Schema({
@@ -23,6 +24,10 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  info: {
+    type: Object,
+    required: true
   }
 }) 
 

@@ -1,4 +1,4 @@
-import { AuthState } from './../types/index';
+import { currentUser, NewRegisteredUser, LogInUser } from '../types/authTypes';
 import axios from "axios";
 import setAuthToken from "../../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
@@ -8,11 +8,13 @@ import {
   USER_LOADING,
   REMOVE_CURRENT_USER 
 } from "../constants/index";
+import { History } from 'history'
 
-export const registerUser = (userData: any, history: any) => (dispatch: any) => {
+export const registerUser = (userData: NewRegisteredUser, history: History) => (dispatch: any) => {
   axios
     .post("http://localhost:8000/api/users/register", userData)
     .then(res => {
+      console.log(res)
       history.push("/login")}) 
     .catch(err =>{
       dispatch({
@@ -22,7 +24,7 @@ export const registerUser = (userData: any, history: any) => (dispatch: any) => 
     );
 };
 
-export const loginUser = (userData: any, history: any) => (dispatch: any) => {
+export const loginUser = (userData: LogInUser, history: History) => (dispatch: any) => {
   axios
     .post("http://localhost:8000/api/users/login", userData)
     .then(res => {
@@ -31,7 +33,7 @@ export const loginUser = (userData: any, history: any) => (dispatch: any) => {
       localStorage.setItem("jwtToken", token);
       setAuthToken(token);
 
-      const decoded: AuthState = jwt_decode(token);
+      const decoded: currentUser = jwt_decode(token);
       dispatch(setCurrentUser(decoded));
       
       history.push('/dashboard')
@@ -44,7 +46,7 @@ export const loginUser = (userData: any, history: any) => (dispatch: any) => {
     );
 };
 
-export const setCurrentUser = (decoded: AuthState) => {
+export const setCurrentUser = (decoded: currentUser) => {
   return {
     type: SET_CURRENT_USER,
     payload: decoded
