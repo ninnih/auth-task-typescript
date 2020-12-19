@@ -18,7 +18,10 @@ export const Menu = () => {
 			<nav>
 				<li><NavLink to="/">Home</NavLink></li>
 				{ auth.isAuthenticated ? 
-				<li><NavLink to="/dashboard">Dashboard</NavLink></li>
+				<>
+					<li><NavLink to="/dashboard">Dashboard</NavLink></li>
+					<li><NavLink to="/profile">Profile</NavLink></li>
+				</>
 				: null }
 			</nav>
 			<ul>
